@@ -20,9 +20,9 @@ function ratesUpdate() {
         }
     });
 }
-setInterval(function() {
-    ApiConnector.getStocks()
-  }, 1000);
+
+ratesUpdate();
+setInterval(ratesUpdate, 60000);
 
 const addMoneyForm = new MoneyManager();
 addMoneyForm.addMoneyCallback = receipts => ApiConnector.addMoney(receipts, response => {
